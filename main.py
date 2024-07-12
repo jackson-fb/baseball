@@ -765,7 +765,7 @@ if __name__ == '__main__':
 
     first, second, third, baddies = load_testfiles()
 
-    print("Ready!")
+    print("Ready! ")
 
     for play in first:
         interpret_play(play + "//")
