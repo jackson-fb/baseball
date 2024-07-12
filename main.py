@@ -3,6 +3,8 @@ import pickle
 import pandas as pd
 import os
 import csv
+import pygame
+import pygame_menu
 
 from classes import *
 
@@ -579,15 +581,6 @@ def load_rosters():
     print("done loading rosters")
     return rosterYears
 
-
-
-# years
-# teams
-# games
-
-
-
-
 def parse_retrosheet(dfs, teams): #TODO remove teams
     # this is a list of games, all by a team in a year
     # 3 characters for team, followed by 4 for year
@@ -609,8 +602,6 @@ def parse_retrosheet(dfs, teams): #TODO remove teams
         print("done")
     print("done loading")
     return years
-
-
 
 def load_field():
     print("loading field from file")
@@ -733,6 +724,20 @@ def load_data():
     return playbyplay, teams, people, field
 
     pass
+
+def set_difficulty(value, difficulty):
+    # Do the job here !
+    pass
+
+def start_the_game():
+    # Do the job here !
+    pass
+
+
+
+
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     #load_people()
@@ -741,7 +746,23 @@ if __name__ == '__main__':
     #years = load_pickle()
 
     #create_pickle()
+
+    # pygame.init()
+    # surface = pygame.display.set_mode((600, 400))
+    #
+    # menu = pygame_menu.Menu('Welcome', 400, 300,
+    #                         theme=pygame_menu.themes.THEME_BLUE)
+    #
+    # menu.add.text_input('Name :', default='John Doe')
+    # menu.add.selector('Difficulty :', [('Hard', 1), ('Easy', 2)], onchange=set_difficulty)
+    # menu.add.button('Play', start_the_game)
+    # menu.add.button('Quit', pygame_menu.events.EXIT)
+    #
+    # menu.mainloop(surface)
+
+
     data = load_pickle()
+
     first, second, third, baddies = load_testfiles()
 
     print("Ready!")
@@ -749,15 +770,5 @@ if __name__ == '__main__':
     for play in first:
         interpret_play(play + "//")
 
-    #playGame(data.years["2021"]["TOR"].games[60], data)
-
-
-
-
-
-
-
-
-
-
-
+    print("done loading")
+    playGame(data.years["2021"]["TOR"].games[60], data)

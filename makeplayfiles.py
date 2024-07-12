@@ -149,11 +149,14 @@ if __name__ == '__main__':
     second = []
     third = []
     baddies = []
+    ones = []
     compiledre = re.compile("\([^\)/]*/[^\)/]*\)")
     for play in uniqueplays:
         print(play)
         splitplay = smartsplit(play, '/', compiledre)
         #splitplay = play.split('/')
+        if len(splitplay) == 1:
+            ones.append(play)
         if len(splitplay) == 2:
             first.append(splitplay[0])
             second.append(splitplay[1])
@@ -169,6 +172,8 @@ if __name__ == '__main__':
     second = clear_duplicates(second)
     third = clear_duplicates(third)
     baddies = clear_duplicates(baddies)
+
+    ones = clear_duplicates(ones)
 
 
     #smartsplit("46(1)/FO/G4.2-H(E6/TH)(NR)(UR);B-2(E6/TH)", '', compiledre)
